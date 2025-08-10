@@ -68,8 +68,7 @@ User feedback will be reviewed, and changes implemented to improve the system’
 
 ## Installation & Setup
 To run Transcript_Vault locally, 
-- clone the repository
+- Clone the repository
 - Set up a virtual environment.
-- Install the dependencies from `requirements.txt`,
-- run migrations, and
-- start the development server.
+- Run migrations, and
+- Start the development server.
