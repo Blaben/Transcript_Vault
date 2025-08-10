@@ -1,6 +1,75 @@
 # Transcript_Vault
-Table of Content
 
-## Week1 -  Idea & Planning Phase
-1. Project Idea
-Many universities struggle with delays, manual processes, and long queues when students need access to their academic transcripts. TranscriptVault aims to solve this by providing a simple backend system that allows students to access their transcripts digitally, anytime, without the usual hustle.
+## Table of Contents
+- [Project Introduction](#project-introduction)
+- [Part 1 - Idea & Planning Phase](#part-1---idea--planning-phase)
+- [Part 2 - Design Phase (ER Diagram)](#part-2---design-phase-er-diagram)
+- [Part 3 - Start Building (Development Phase Begins)](#part-3---start-building-development-phase-begins)
+- [Part 4 - Development Phase Continues](#part-4---development-phase-continues)
+- [Part 5 - Polish, Test & User Review](#part-5---polish-test--user-review)
+- [Part 6 - Feedback Implementation](#part-6---feedback-implementation)
+- [Tech Stack](#tech-stack)
+- [Installation & Setup](#installation--setup)
+- [Project Timeline](#project-timeline)
+
+---
+
+## Project Introduction
+Many universities face delays, manual processes, and long queues when students request access to their academic transcripts. **Transcript_Vault** aims to solve this problem by providing a **secure, digital backend system** for transcript management.
+
+With **Transcript_Vault**:
+- Staff can upload and manage academic records per student, semester, and course.
+- Students can securely log in and view their transcripts in real time.
+- The platform ensures accuracy, reduces waiting time, and eliminates the need for paper-based requests.
+
+---
+
+## Part 1 - Idea & Planning Phase
+The first phase focuses on clearly defining the problem and mapping out a solution. 
+The idea for Transcript_Vault came from recognizing the need for a digital, efficient, and secure transcript management system. In this stage, the project scope, core features, Django app structure, and database design were planned, along with a simple weekly development roadmap.
+
+---
+
+## Part 2 - Design Phase (ER Diagram)
+The design phase involves creating an Entity Relationship Diagram (ERD) to map out the data flow and structure of the system. 
+
+---
+
+## Part 3 - Start Building (Development Phase Begins)
+The development phase will begin with setting up the Django project and creating the required applications. This includes implementing an authentication system, setting up the database, and building the core models for students, courses, grades, and transcripts.
+
+---
+
+## Part 4 - Development Phase Continues
+During this stage, the main functionalities will be implemented. Staff upload and management features are added, allowing transcript data to be entered and updated. The student dashboard for transcript viewing is developed, and CRUD operations for all related models are completed.
+
+---
+
+## Part 5 - Polish, Test & User Review
+The system will be tested for bugs and usability issues. The interface is refined for a better user experience. A pilot version will be shared with a sample of staff and students to gather feedback on functionality, speed, and usability.
+
+
+---
+
+## Part 6 - Feedback Implementation
+User feedback will be reviewed, and changes implemented to improve the system’s performance and user experience. Final deployment preparations will be made to ensure the application is ready for full-scale use.
+
+
+---
+
+## Tech Stack
+- **Backend:** Django (Python)
+- **Database:** SQLite for development
+- **Frontend:** Django Templates
+- **Authentication:** Django’s built-in authentication system
+- **Optional API:** PDF generation API for downloadable transcripts
+
+---
+
+## Installation & Setup
+To run Transcript_Vault locally, 
+- clone the repository
+- Set up a virtual environment.
+- Install the dependencies from `requirements.txt`,
+- run migrations, and
+- start the development server.
