@@ -29,7 +29,7 @@ The first phase focuses on clearly defining the problem and mapping out a soluti
 The idea for Transcript_Vault came from recognizing the need for a digital, efficient, and secure transcript management system. In this stage, the project scope, core features, Django app structure, and database design were planned, along with a simple weekly development roadmap.
 
 
-* ## Main Features
+## Main Features
   - User Authentication: Only authorized users can log in to upload or manage transcripts.
   - Student Account Access: Students can log in securely to view their academic records.
   - Student Profile Management: Admins can add and manage student data such as name, index number, program, and level.
@@ -58,8 +58,58 @@ Week          <>  Task
 
 ---
 
+
 ## Part 2 - Design Phase (ER Diagram)
 The design phase involves creating an Entity Relationship Diagram (ERD) to map out the data flow and structure of the system. 
+
+  ## Objective
+  To design the Entity Relationship Diagram (ERD) for Transcript_Vault, mapping out the main entities, their attributes, and relationships to      guide database implementation in Django.
+
+  ## Entities and Attributes
+  - User (Stores authentication details for all system users, including students and administrative staff.)
+    - id (PK)
+    - username
+    - email
+    - password
+    - is_staff (Boolean: True for admin, False for student)
+    - date_joined
+
+  ## Student (Student Data - Holds personal and academic profile information)
+    - id (PK)
+    - first_name
+    - last_name
+    - index_number (Unique)
+    - program (e.g., BSc ICT)
+    - level (e.g., Level 100)
+    - user_id (FK → User, mandatory for login access)
+
+  ## Course (Stores course details offered in different programs.)
+    - id (PK)
+    - course_code (e.g., ICT101)
+    - course_title
+    - credit_hours
+
+
+  ## Grade (Stores academic performance for each student in a given course, semester, and academic year.)
+    - id (PK)
+    - student_id (FK → Student)
+    - course_id (FK → Course)
+    - grade (e.g., A, B+, C)
+    - semester (e.g., First, Second)
+    - level (Matches student level)
+    - academic_year (e.g., 2023/2024)
+
+
+  ## Relationships
+    - User → Student: One-to-One 
+
+    - Student → Grade: One-to-Many (a student can have multiple grades)
+    - Linked to User via a required user_id field to enforce secure, authenticated access to transcripts.
+
+    - Course → Grade: One-to-Many (a course can have grades for multiple students)
+    - Acts as a junction table linking Student and Course
+
+    - Grade acts as a junction table linking students and courses.
 
 ---
 
