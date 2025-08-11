@@ -62,11 +62,11 @@ Week          <>  Task
 ## Part 2 - Design Phase (ER Diagram)
 The design phase involves creating an Entity Relationship Diagram (ERD) to map out the data flow and structure of the system. 
 
-  ## Objective
+  ### Objective
   To design the Entity Relationship Diagram (ERD) for Transcript_Vault, mapping out the main entities, their attributes, and relationships to      guide database implementation in Django.
 
   ## Entities and Attributes
-  - User (Stores authentication details for all system users, including students and administrative staff.)
+    ### User (Stores authentication details for all system users, including students and administrative staff.)
     - id (PK)
     - username
     - email
@@ -74,7 +74,7 @@ The design phase involves creating an Entity Relationship Diagram (ERD) to map o
     - is_staff (Boolean: True for admin, False for student)
     - date_joined
 
-  ## Student (Student Data - Holds personal and academic profile information)
+  ### Student (Student Data - Holds personal and academic profile information)
     - id (PK)
     - first_name
     - last_name
@@ -83,14 +83,14 @@ The design phase involves creating an Entity Relationship Diagram (ERD) to map o
     - level (e.g., Level 100)
     - user_id (FK → User, mandatory for login access)
 
-  ## Course (Stores course details offered in different programs.)
+  ### Course (Stores course details offered in different programs.)
     - id (PK)
     - course_code (e.g., ICT101)
     - course_title
     - credit_hours
 
 
-  ## Grade (Stores academic performance for each student in a given course, semester, and academic year.)
+  ### Grade (Stores academic performance for each student in a given course, semester, and academic year.)
     - id (PK)
     - student_id (FK → Student)
     - course_id (FK → Course)
@@ -100,7 +100,7 @@ The design phase involves creating an Entity Relationship Diagram (ERD) to map o
     - academic_year (e.g., 2023/2024)
 
 
-  ## Relationships
+  ### Relationships
     - User → Student: One-to-One 
 
     - Student → Grade: One-to-Many (a student can have multiple grades)
