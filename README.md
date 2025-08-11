@@ -14,7 +14,7 @@
 
 ---
 
-## Project Introduction
+## Project Introduction 
 Many universities face delays, manual processes, and long queues when students request access to their academic transcripts. **Transcript_Vault** aims to solve this problem by providing a **secure, digital backend system** for transcript management.
 
 With **Transcript_Vault**:
@@ -27,6 +27,34 @@ With **Transcript_Vault**:
 ## Part 1 - Idea & Planning Phase
 The first phase focuses on clearly defining the problem and mapping out a solution. 
 The idea for Transcript_Vault came from recognizing the need for a digital, efficient, and secure transcript management system. In this stage, the project scope, core features, Django app structure, and database design were planned, along with a simple weekly development roadmap.
+
+
+* ## Main Features
+  - User Authentication: Only authorized users can log in to upload or manage transcripts.
+  - Student Account Access: Students can log in securely to view their academic records.
+  - Student Profile Management: Admins can add and manage student data such as name, index number, program, and level.
+  - Course Management: Admins can add courses with titles, codes, and credit hours for various programs.
+  - Grade Entry: Admins can upload grades for students per course, semester, and academic year.
+  - Transcript Viewing: Students can view their academic transcript grouped by semester or level.
+  - Export transcript as a clean, readable PDF using a PDF generation tool.
+
+## API 
+ A PDF generation library [WeasyPrint](https://weasyprint.org/) will be used for exporting transcripts in PDF format..
+
+## Models
+- User (extend Django's AbstractUser)
+- Student
+- Course
+- Grade
+
+## Timeline (5-Week Plan)
+Week          <>  Task
+- Week 1    - Choose Project, outline features, models, and API endpoints 
+- Week 2    - Draw (Entity Relationship Diagram) showing models and how they relate
+- Week 3    - Set up Django project, create models, Add authentication
+- Week 4    - Build APIs for students, courses, and grades; add transcript logic
+- Week 5    - Final testing, optional PDF export, documentation, Project Submission
+
 
 ---
 
