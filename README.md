@@ -66,7 +66,7 @@ The design phase involves creating an Entity Relationship Diagram (ERD) to map o
   To design the Entity Relationship Diagram (ERD) for Transcript_Vault, mapping out the main entities, their attributes, and relationships to      guide database implementation in Django.
 
   ## Entities and Attributes
-    ### User (Stores authentication details for all system users, including students and administrative staff.)
+  ### User (Stores authentication details for all system users, including students and administrative staff.)
     - id (PK)
     - username
     - email
@@ -98,6 +98,8 @@ The design phase involves creating an Entity Relationship Diagram (ERD) to map o
     - semester (e.g., First, Second)
     - level (Matches student level)
     - academic_year (e.g., 2023/2024)
+
+    
 
 
   ### Relationships
