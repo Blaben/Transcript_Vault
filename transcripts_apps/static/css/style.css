@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #fbf4f9, #f7dbf7);
+  padding: 32px;
+  color: #300839;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Styles */
+.cont_mod {
+  display: flex;
+  align-items: center;
+  gap: 30rem;
+  background-color: rgb(245, 179, 234);
+  margin: 0px 0px 60px 0px;
+  width: 100%;
+}
+
+.logo {
+  margin-left: 2.5rem;
+}
+
+.nav_bar ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  list-style-type: none;
+}
+
+ul li a {
+  text-decoration: none;
+  color: rgb(158, 39, 138);
+}
+
+.reg-btn {
+  background-color: rgb(158, 39, 138);
+  color: white;
+  padding: 10px 20px;
+  margin-left: 2.5rem;
+  border-radius: 2px;
+  text-decoration: none;
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid #dbe8ff;
+  color: rgb(158, 39, 138);
+}
+
+/* Body Styles */
+.container {
+  width: 80%;
+  max-width: 1120px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(19, 24, 38, 0.08);
+  padding: 36px;
+  /* display: flex;
+  gap: 28px; */
+  margin: auto;
+}
+
+.content h1 {
+  margin: 0 0 8px 0;
+  font-size: 45px;
+}
+
+.content {
+  padding: 36px;
+}
+
+.content p.lead {
+  font-size: 20px;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+.actions {
+  display: flex;
+  gap: 16px;
+}
+
+.tagline {
+  font-weight: 600;
+  color: rgb(158, 39, 138);
+  margin-bottom: 18px;
+}
+
+.small {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2.5rem;
+}
