@@ -115,5 +115,58 @@ def course_delete(request, course_id):
 @login_required
 @is_admin
 def grade_list(request):
-    grades = Grade.objects.select_related("student", "course").order_by("-academic_year")
-    return
+    grades = Grade.objects.select_related("student", "course").order_by("academic_year")
+    return render(request, "transcripts/grade_list.html", {"grades": grades})
+
+@login_required
+@is_admin
+def grade_add(request):
+    if request.method == "POST":
+        form = GradeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("grade_list")
+        else:
+            form = GradeForm()
+            return render(request, "transcripts/grade_form.html", {"form": form,"title": "Add Grade"})
+
+@login_required
+@is_admin
+def grade_edit(request, grade_id):
+    grade = get_object_or_404(Grade, pk=grade_id)
+    if request.method == "POST":
+        form = GradeForm(request.POST, instance=grade)
+        if form.is_valid():
+            form.save()
+            return redirect("grade_list")
+        else:
+            form = GradeForm(instance=grade)
+            return render(request, "transcripts/grade_form.html", {"form": form,"title": "Edit Grade"})
+
+@login_required
+@is_admin
+def grade_delete(request, grade_id):
+    grade = get_object_or_404(Grade, pk=grade_id)
+    grade.delete()
+    return redirect("grade_list")
+
+
+ # ---------- Transcript (view + PDF) ---------
+@login_required
+def transcript_view(request, student_id):
+    student = get_object_or_404(Student, pk=student_id)
+    grades = Grade.objects.filter(student=student).select_related("course")
+    # Optional: group by semester/level in template
+    return render(request, "transcripts/transcript_view.html", {"student": student, "grades": grades})
+
+# WeasyPrint export
+import weasyprint
+@login_required
+def transcript_pdf(request, student_id):
+    student = get_object_or_404(Student, pk=student_id)
+    grades = Grade.objects.filter(student=student).select_related("course")
+    html = render_to_string("transcripts/transcript_pdf.html", {"student": student, "grades": grades})
+    response = HttpResponse(content_type="application/pdf")
+    response["Content-Disposition"] = f'filename="transcript_{student.index_number}.pdf"'
+    weasyprint.HTML(string=html).write_pdf(response)
+    return response
