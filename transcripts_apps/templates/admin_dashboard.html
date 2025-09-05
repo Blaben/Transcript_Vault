@@ -1,0 +1,14 @@
+{% extends 'transcripts/base.html' %} {% block title %}Admin Dashboard{%
+endblock %} {% block content %}
+<h2>Welcome, Admin</h2>
+<div class="stats">
+  <div class="card">Students: {{ student_count }}</div>
+  <div class="card">Courses: {{ course_count }}</div>
+  <div class="card">Grades: {{ grade_count }}</div>
+</div>
+<ul class="dashboard-links">
+  <li><a href="{% url 'student_list' %}">Manage Students</a></li>
+  <li><a href="{% url 'course_list' %}">Manage Courses</a></li>
+  <li><a href="{% url 'grade_list' %}">Manage Grades</a></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'transcripts/base.html' %} {% block title %}Student Dashboard{%
+endblock %} {% block content %}
+<h2>Welcome, {{ user.get_username }}</h2>
+{% if student %}
+<p><a href="{% url 'transcript_view' student.id %}">View My Transcript</a></p>
+{% else %}
+<!-- <p>No student profile is linked to this account.</p> -->
+{% endif %} {% endblock %}
