@@ -1,0 +1,30 @@
+{% extends 'transcripts/base.html' %} {% block title %}Students{% endblock %} {%
+block content %}
+<h2>Students</h2>
+<a href="{% url 'student_add' %}" class="btn">Add Student</a>
+<table>
+  <tr>
+    <th>Index Number</th>
+    <th>Name</th>
+    <th>Program</th>
+    <th>Level</th>
+    <th>Actions</th>
+  </tr>
+  {% for s in students %}
+  <tr>
+    <td>{{ s.index_number }}</td>
+    <td>{{ s.first_name }} {{ s.last_name }}</td>
+    <td>{{ s.program }}</td>
+    <td>{{ s.level }}</td>
+    <td>
+      <a href="{% url 'student_edit' s.id %}">Edit</a>
+      <a href="{% url 'student_delete' s.id %}">Delete</a>
+    </td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td colspan="5">No students yet.</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
