@@ -1,8 +1,24 @@
-{% extends 'transcripts/base.html' %} {% block title %}Student Dashboard{%
-endblock %} {% block content %}
-<h2>Welcome, {{ user.get_username }}</h2>
-{% if student %}
-<p><a href="{% url 'transcript_view' student.id %}">View My Transcript</a></p>
-{% else %}
-<!-- <p>No student profile is linked to this account.</p> -->
-{% endif %} {% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Welcome, {{ user.get_username }}</h2>
+      {% if student %}
+      <p>
+        <a href="{% url 'transcript_view' student.id %}" class="btn"
+          >View My Transcript</a
+        >
+      </p>
+      {% else %}
+      <p>No student profile is linked to this account.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

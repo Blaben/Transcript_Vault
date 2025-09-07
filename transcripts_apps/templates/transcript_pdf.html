@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <title>Transcript PDF</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -39,9 +40,10 @@
     <div class="meta">
       <strong>Name:</strong> {{ student.first_name }} {{ student.last_name }}<br />
       <strong>Index Number:</strong> {{ student.index_number }}<br />
-      <strong>Program:</strong> {{ student.program }} | <strong>Level:</strong>
-      {{ student.level }}
+      <strong>Program:</strong> {{ student.program }} |
+      <strong>Level:</strong> {{ student.level }}
     </div>
+
     <table>
       <tr>
         <th>Course</th>
@@ -64,6 +66,7 @@
       </tr>
       {% endfor %}
     </table>
+
     <footer>Generated on {% now "jS F Y, H:i" %}</footer>
   </body>
 </html>

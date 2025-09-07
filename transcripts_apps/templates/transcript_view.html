@@ -1,34 +1,49 @@
-{% extends 'transcripts/base.html' %} {% block title %}Transcript{% endblock %}
-{% block content %}
-<h2>
-  Transcript for {{ student.first_name }} {{ student.last_name }} ({{
-  student.index_number }})
-</h2>
-<table>
-  <tr>
-    <th>Course</th>
-    <th>Code</th>
-    <th>Credit</th>
-    <th>Grade</th>
-    <th>Semester</th>
-    <th>Level</th>
-    <th>Year</th>
-  </tr>
-  {% for g in grades %}
-  <tr>
-    <td>{{ g.course.course_title }}</td>
-    <td>{{ g.course.course_code }}</td>
-    <td>{{ g.course.credit_hours }}</td>
-    <td>{{ g.grade }}</td>
-    <td>{{ g.semester }}</td>
-    <td>{{ g.level }}</td>
-    <td>{{ g.academic_year }}</td>
-  </tr>
-  {% empty %}
-  <tr>
-    <td colspan="7">No grades yet.</td>
-  </tr>
-  {% endfor %}
-</table>
-<p><a href="{% url 'transcript_pdf' student.id %}">Download PDF</a></p>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transcript</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>
+        Transcript for {{ student.first_name }} {{ student.last_name }} ({{
+        student.index_number }})
+      </h2>
+      <table>
+        <tr>
+          <th>Course</th>
+          <th>Code</th>
+          <th>Credit</th>
+          <th>Grade</th>
+          <th>Semester</th>
+          <th>Level</th>
+          <th>Year</th>
+        </tr>
+        {% for g in grades %}
+        <tr>
+          <td>{{ g.course.course_title }}</td>
+          <td>{{ g.course.course_code }}</td>
+          <td>{{ g.course.credit_hours }}</td>
+          <td>{{ g.grade }}</td>
+          <td>{{ g.semester }}</td>
+          <td>{{ g.level }}</td>
+          <td>{{ g.academic_year }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="7">No grades yet.</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <p>
+        <a href="{% url 'transcript_pdf' student.id %}" class="btn"
+          >Download PDF</a
+        >
+      </p>
+    </div>
+  </body>
+</html>
