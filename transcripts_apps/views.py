@@ -1,12 +1,11 @@
-from urllib import request
-from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.http import HttpResponse, request
+from django.http import HttpResponse
 from django.template.loader import render_to_string
 from .models import Student, Course, Grade
 from .forms import LoginForm, StudentForm, CourseForm, GradeForm
+import weasyprint
 
 
 # Create your views here.
@@ -27,7 +26,7 @@ def login_view(request):
             return redirect("student_dashboard")
     else:
         form = LoginForm()
-        return render(request, "transcripts/login.html", {"form": form})
+    return render(request, "transcripts/login.html", {"form": form})
 
 
 def logout_view(request):
@@ -66,6 +65,40 @@ def student_delete(request, student_id):
     return redirect("student_list")
 
 
+@login_required
+@is_admin
+def student_add(request):
+    if request.method == "POST":
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("student_list")
+    else:
+        form = StudentForm()
+    return render(request, "transcripts/student_form.html", {"form": form, "title": "Add Student"})
+
+
+@login_required
+@is_admin
+def student_list(request):
+    students = Student.objects.all()
+    return render(request, "transcripts/student_list.html", {"students": students})
+
+
+@login_required
+@is_admin
+def student_edit(request, student_id):
+    student = get_object_or_404(Student, pk=student_id)
+    if request.method == "POST":
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect("student_list")
+    else:
+        form = StudentForm(instance=student)
+    return render(request, "transcripts/student_form.html", {"form": form, "title": "Edit Student"})
+
+
 # ---------- Course CRUD ----------
 @login_required
 @is_admin
@@ -82,9 +115,9 @@ def course_add(request):
         if form.is_valid():
             form.save()
             return redirect("course_list")
-        else:
-            form = CourseForm()
-            return render(request, "transcripts/course_form.html", {"form": form, "title": "Add Course"})
+    else:
+        form = CourseForm()
+    return render(request, "transcripts/course_form.html", {"form": form, "title": "Add Course"})
 
 
 @login_required
@@ -124,9 +157,9 @@ def grade_add(request):
         if form.is_valid():
             form.save()
             return redirect("grade_list")
-        else:
-            form = GradeForm()
-            return render(request, "transcripts/grade_form.html", {"form": form,"title": "Add Grade"})
+    else:
+        form = GradeForm()
+    return render(request, "transcripts/grade_form.html", {"form": form,"title": "Add Grade"})
 
 @login_required
 @is_admin
@@ -137,9 +170,9 @@ def grade_edit(request, grade_id):
         if form.is_valid():
             form.save()
             return redirect("grade_list")
-        else:
-            form = GradeForm(instance=grade)
-            return render(request, "transcripts/grade_form.html", {"form": form,"title": "Edit Grade"})
+    else:
+        form = GradeForm(instance=grade)
+    return render(request, "transcripts/grade_form.html", {"form": form,"title": "Edit Grade"})
 
 @login_required
 @is_admin

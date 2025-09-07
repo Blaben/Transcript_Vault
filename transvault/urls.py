@@ -18,7 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from transcripts_apps import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(views.home)),
+    path('', views.home),
+    path('transcripts/', include('transcripts_apps.urls')),
+          
 ]
