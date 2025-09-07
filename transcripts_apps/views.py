@@ -3,17 +3,15 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from django.template.loader import render_to_string
-
-
 from .models import Student, Course, Grade
 from .forms import LoginForm, StudentForm, CourseForm, GradeForm
 
 
 # Create your views here.
 
-#H This view connects to the Home Page
+#H This view connects to the Home Page thus index.html
 def home(request):
     return render(request, 'index.html')
 

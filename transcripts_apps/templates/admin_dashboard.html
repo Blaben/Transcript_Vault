@@ -1,5 +1,62 @@
 {% extends 'transcripts/base.html' %} {% block title %}Admin Dashboard{%
 endblock %} {% block content %}
+<style>
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .stats .card {
+    flex: 1;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(19, 24, 38, 0.08);
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(158, 39, 138);
+    text-align: center;
+    transition: 0.3s ease;
+  }
+
+  .stats .card:hover {
+    background: rgb(158, 39, 138);
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  .dashboard-links {
+    list-style: none;
+    padding: 0;
+  }
+
+  .dashboard-links li {
+    margin: 10px 0;
+  }
+
+  .dashboard-links a {
+    display: inline-block;
+    padding: 10px 16px;
+    background: rgb(158, 39, 138);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+
+  .dashboard-links a:hover {
+    background: transparent;
+    border: 1px solid #dbe8ff;
+    color: rgb(158, 39, 138);
+  }
+</style>
+
 <h2>Welcome, Admin</h2>
 <div class="stats">
   <div class="card">Students: {{ student_count }}</div>
