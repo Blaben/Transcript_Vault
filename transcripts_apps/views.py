@@ -12,7 +12,7 @@ import weasyprint
 
 #H This view connects to the Home Page thus index.html
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'transcripts/index.html')
 
 # ---------- Auth ----------
 def login_view(request):

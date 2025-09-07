@@ -53,6 +53,29 @@
     border: 1px solid #dbe8ff;
     color: rgb(158, 39, 138);
   }
+
+  .nav-bar2 {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0px;
+  }
+  .nav-bar2 a {
+    color: white;
+    text-decoration: none;
+    color: rgb(158, 39, 138);
+  }
+  .nav-bar2 a:hover {
+    text-decoration: underline;
+  }
+  .nav-bar2 .reg-btn {
+    background-color: rgb(158, 39, 138);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 2px;
+    text-decoration: none;
+  }
 </style>
 
 {% load static %}
@@ -65,6 +88,13 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
+    <nav class="nav-bar2">
+      <a href="{% url 'admin_dashboard' %}">Dashboard</a>
+      <a href="{% url 'student_list' %}">Students</a>
+      <a href="{% url 'course_list' %}">Courses</a>
+      <a href="{% url 'grade_list' %}">Grades</a>
+      <a class="reg-btn" href="{% url 'logout' %}">Logout</a>
+    </nav>
     <div class="container">
       <h2>Welcome, Admin</h2>
       <div class="stats">
