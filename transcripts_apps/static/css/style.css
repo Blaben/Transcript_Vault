@@ -117,4 +117,26 @@ tr:hover {
   background: #f1f1f1;
 }
 
-/* Admin Dashboard Styles */
+/* Navbar styling for all the forms */
+.nav-bar2 {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0px;
+}
+.nav-bar2 a {
+  color: white;
+  text-decoration: none;
+  color: rgb(158, 39, 138);
+}
+.nav-bar2 a:hover {
+  text-decoration: underline;
+}
+.nav-bar2 .reg-btn {
+  background-color: rgb(158, 39, 138);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 2px;
+  text-decoration: none;
+}

@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
+    <nav class="nav-bar2">
+      <a href="{% url 'admin_dashboard' %}">Dashboard</a>
+      <a href="{% url 'student_list' %}">Students</a>
+      <a href="{% url 'course_list' %}">Courses</a>
+      <a href="{% url 'grade_list' %}">Grades</a>
+      <a class="reg-btn" href="{% url 'logout' %}">Logout</a>
+    </nav>
     <div class="container">
       <h2>Grades</h2>
       <a href="{% url 'grade_add' %}" class="btn">Add Grade</a>

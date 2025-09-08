@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
+    <nav class="nav-bar2">
+      <a href="{% url 'student_dashboard' %}">Dashboard</a>
+      <a class="reg-btn" href="{% url 'logout' %}">Logout</a>
+    </nav>
     <div class="container">
       <h2>
         Transcript for {{ student.first_name }} {{ student.last_name }} ({{
